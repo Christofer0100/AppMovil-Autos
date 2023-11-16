@@ -27,7 +27,14 @@
     </form>
     
     <ion-button type="submit" expand="full" color="warning" [routerLink]="['/rcontrasenna']" >Olvidaste tu contraseña?</ion-button>
+
+    <ion-item>
+      <ion-label>Recordar credenciales</ion-label>
+      <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox>
+    </ion-item>
+
   </ion-card-content>
+
 </ion-card>
 </ion-content>
 
