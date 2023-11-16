@@ -1,0 +1,35 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card class="cardd">
+
+  <ion-card-content>
+    <img src="assets/duoc.jpg" alt="Inicio de sesion">
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+    <form>
+      <ion-item>
+        <ion-label position="floating">gmail</ion-label>
+        <ion-input  [(ngModel)]="user.Gmail" name="gmail " ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input  [(ngModel)]="user.Contrasena" name="Contrasena" type="password" ></ion-input>
+      </ion-item>
+
+      <br>
+      <ion-button type="button" expand="full" color="warning" (click)="login()">Iniciar Sesión</ion-button>
+    </form>
+    
+    <ion-button type="submit" expand="full" color="warning" [routerLink]="['/rcontrasenna']" >Olvidaste tu contraseña?</ion-button>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+
+
+

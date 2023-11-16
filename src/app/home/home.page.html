@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button [routerLink]="['/login']"> 
+        <ion-icon slot="icon-only" name="person-circle" #loginIcon></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Registro de asistencia {{user?.Gmail}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <img alt="Profesor" src="assets/Profesor.jpg"  class="custom-image"/>
+    <ion-card-header>
+      <ion-card-title>Profesora Eliza</ion-card-title>
+      <ion-card-subtitle>Ingles</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Control de asistencia y informacion de la materia aca
+      <br> 
+      Elogiar Profesor
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label>Latitud {{latitud}}</ion-label>
+    </ion-item>
+  </div>
+
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label>Longitud {{longitud}}</ion-label>
+    </ion-item>
+  </div>
+
+  <div class="ion-padding">
+    <ion-button expand="full" (click)="obtenerCoordenadas()">Obtener</ion-button>
+  </div>
+
+</ion-content>
+
+<section>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    .spinner {
+      /* Define aquí los estilos de tu rueda de carga personalizada. */
+    }
+  }
