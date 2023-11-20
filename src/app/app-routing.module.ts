@@ -16,9 +16,15 @@ const routes: Routes = [
     loadChildren: () => import('./rcontrasenna/rcontrasenna.module').then( m => m.RcontrasennaPageModule)
   },
   {
+    path: 'pasajero',
+    loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   }
+
+
 ];
 
 @NgModule({
