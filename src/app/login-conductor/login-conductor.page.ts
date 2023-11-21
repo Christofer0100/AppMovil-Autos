@@ -5,12 +5,13 @@ import { AlumnosService } from '../services/autenticacion.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-login-conductor',
+  templateUrl: './login-conductor.page.html',
+  styleUrls: ['./login-conductor.page.scss'],
 })
-export class LoginPage {
-  user = {
+export class LoginConductorPage {
+
+  auto = {
     Gmail: "",         
     Contrasena: ""     
   };
@@ -26,30 +27,30 @@ export class LoginPage {
   }
 
   login() {
-    this.api.getAlumnos().subscribe(
-      (alumnos) => {
-        if (alumnos && alumnos.length > 0) {
-          const usuario = this.user.Gmail.toLowerCase();
-          const contrasena = this.user.Contrasena.toLowerCase();
+    this.api.getConductores().subscribe(
+      (conductores) => {
+        if (conductores && conductores.length > 0) {
+          const usuario = this.auto.Gmail.toLowerCase();
+          const contrasena = this.auto.Contrasena.toLowerCase();
 
-          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.nombreAlumno.toLowerCase() === usuario);
+          const conductor = conductores.find((conductor) => conductor.Gmail.toLowerCase() === usuario || conductor.nombreConductor.toLowerCase() === usuario);
 
-          if (alumno && alumno.Contrasena.toLowerCase() === contrasena) {
+          if (conductor && conductor.Contrasena.toLowerCase() === contrasena) {
             console.log('Autenticación exitosa');
 
-            const correoUsuario = this.user.Gmail;
+            const correoUsuario = this.auto.Gmail;
 
             this.redirigirSegunCorreo(correoUsuario);
 
             let navigationExtras: NavigationExtras = {
               state: {
-                user: this.user,
-                alumno: alumno
+                auto: this.auto,
+                conductor: conductor
               }
             };
 
             if (this.rememberMe) {
-              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.user.Gmail, Contrasena: this.user.Contrasena }));
+              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.auto.Gmail, Contrasena: this.auto.Contrasena }));
               console.log('Credenciales guardadas en localStorage');
             } else {
               // Si no está marcado, elimina las credenciales almacenadas
@@ -82,11 +83,10 @@ export class LoginPage {
     // Obtener la parte del dominio del correo electrónico
     const dominio = correo.split('@')[1];
 
-    // Lógica de redirección basada en la parte del dominio
-    if (dominio === 'pasajero.duoc.cl') {
-      // Redirigir a una página específica para correos con dominio "duoc.cl"
-      this.router.navigate(['/pasajero']);
-    } 
+  if (dominio === 'conductor.duoc.cl') {
+      // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
+      this.router.navigate(['/home']);
+    }
   }
 
 }

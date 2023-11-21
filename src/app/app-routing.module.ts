@@ -20,10 +20,13 @@ const routes: Routes = [
     loadChildren: () => import('./pasajero/pasajero.module').then( m => m.PasajeroPageModule)
   },
   {
+    path: 'login-conductor',
+    loadChildren: () => import('./login-conductor/login-conductor.module').then( m => m.LoginConductorPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
-  }
-
+  },
 
 ];
 

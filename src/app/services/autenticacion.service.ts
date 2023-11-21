@@ -33,4 +33,19 @@ export class AlumnosService {
       );
     });
   }
+
+  getConductores(): Observable<any[]> {
+    return new Observable((observer) => {
+      this.http.get<any[]>(`${this.apiUrl}/conductores`).subscribe(
+        (apiData) => {
+          observer.next(apiData);
+          observer.complete();
+        },
+        (error) => {
+          console.error('Error en la solicitud HTTP:', error);
+          observer.error(error);
+        }
+      );
+    });
+  }
 }
