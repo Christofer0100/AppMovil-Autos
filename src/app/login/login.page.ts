@@ -83,10 +83,10 @@ export class LoginPage {
     const dominio = correo.split('@')[1];
 
     // Lógica de redirección basada en la parte del dominio
-    if (dominio === 'duoc.cl') {
+    if (dominio === 'pasajero.duoc.cl') {
       // Redirigir a una página específica para correos con dominio "duoc.cl"
       this.router.navigate(['/pasajero']);
-    } else if (dominio === 'profesor.duoc.cl') {
+    } else if (dominio === 'conductor.duoc.cl') {
       // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
       this.router.navigate(['/home']);
     }
