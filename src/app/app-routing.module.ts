@@ -26,6 +26,11 @@ const routes: Routes = [
     loadChildren: () => import('./login-conductor/login-conductor.module').then( m => m.LoginConductorPageModule)
   },
   {
+    path: '',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
+  },
+  {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
