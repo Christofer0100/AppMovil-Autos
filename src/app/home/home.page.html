@@ -1,59 +1,75 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="secondary">
-      <ion-button [routerLink]="['/login']"> 
+      <ion-button [routerLink]="['/inicio']"> 
         <ion-icon slot="icon-only" name="person-circle" #loginIcon></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Registro de asistencia {{user?.Gmail}}</ion-title>
+    <ion-title>Detalle de Pasajeros {{user?.Gmail}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img alt="Logo Duoc UC" src="assets/duoc.jpg" height="30" />
+    </ion-title>
+    <ion-buttons slot="end">
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-card>
-    <img alt="Profesor" src="assets/Profesor.jpg"  class="custom-image"/>
-    <ion-card-header>
-      <ion-card-title>Profesora Eliza</ion-card-title>
-      <ion-card-subtitle>Ingles</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Control de asistencia y informacion de la materia aca
-      <br> 
-      Elogiar Profesor
-      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-    </ion-card-content>
-  </ion-card>
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <div class="ion-padding">
+      <ion-card class="ion-text-center">
+        <ion-card-header>
+          <ion-card-title>Bienvenido  </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Selecciona al conductor deseado
+        </ion-card-content>
+      </ion-card>
+    </div>
 
-  <div class="ion-padding">
-    <ion-item>
-      <ion-label>Latitud {{latitud}}</ion-label>
-    </ion-item>
-  </div>
+    <ion-list>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Metro Manuel Montt</ion-card-title>
+          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="ion-text-end">
+            <button class="btn btn-secondary">Seleccionar</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <br>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Metro Universidad de Chile</ion-card-title>
+          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="ion-text-end">
+            <button class="btn btn-secondary">Seleccionar</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <br>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Metro Los Héroes</ion-card-title>
+          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="ion-text-end">
+            <button class="btn btn-secondary">Seleccionar</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
 
-  <div class="ion-padding">
-    <ion-item>
-      <ion-label>Longitud {{longitud}}</ion-label>
-    </ion-item>
-  </div>
-
-  <div class="ion-padding">
-    <ion-button expand="full" (click)="obtenerCoordenadas()">Obtener</ion-button>
-  </div>
+  </ion-content>
 
 </ion-content>
-
-<section>
-  <div class="example-button-row">
-    <div class="example-flex-container">
-      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-        <mat-icon>home</mat-icon>
-      </button>
-      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-  </div>
-</section>

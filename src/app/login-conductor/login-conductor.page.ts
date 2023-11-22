@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { AUTService } from 'src/app/aut.service';
 import { AlumnosService } from '../services/autenticacion.service';
 import { Storage } from '@ionic/storage';
+import { GuardGuard } from '../guard/guard.guard';
 
 @Component({
   selector: 'app-login-conductor',
@@ -17,7 +18,7 @@ export class LoginConductorPage {
   };
   rememberMe!: boolean;
 
-  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage) {
+  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage, private auth: GuardGuard) {
     this.initStorage();
   }
 
@@ -37,6 +38,7 @@ export class LoginConductorPage {
 
           if (conductor && conductor.Contrasena.toLowerCase() === contrasena) {
             console.log('Autenticación exitosa');
+            this.auth.setAuthenticationStatus(true);
 
             const correoUsuario = this.auto.Gmail;
 
@@ -59,21 +61,21 @@ export class LoginConductorPage {
             }
           } else {
             console.log('Autenticación fallida: Credenciales incorrectas');
-            this.router.navigate(['/login']);
+            this.router.navigate(['/login-conductor']);
           }
         } else {
           console.error('La respuesta de la API es un array vacío o nulo');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login-conductor']);
         }
       },
       (error) => {
         console.error('Error al obtener datos de la API', error);
         if (error.status === 401) {
           console.log('Error de autenticación: Credenciales incorrectas');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login-conductor']);
         } else {
           console.error('Otro tipo de error:', error);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login-conductor']);
         }
       }
     );
@@ -83,7 +85,7 @@ export class LoginConductorPage {
     // Obtener la parte del dominio del correo electrónico
     const dominio = correo.split('@')[1];
 
-  if (dominio === 'conductor.duoc.cl') {
+  if (dominio === 'cduoc.cl') {
       // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
       this.router.navigate(['/home']);
     }
