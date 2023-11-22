@@ -3,6 +3,8 @@ import { NavigationExtras, Router } from '@angular/router';
 import { AUTService } from 'src/app/aut.service';
 import { AlumnosService } from '../services/autenticacion.service';
 import { Storage } from '@ionic/storage';
+import { GuardGuard } from '../guard/guard.guard';
+
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginPage {
   };
   rememberMe!: boolean;
 
-  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage) {
+  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage, private auth: GuardGuard) {
     this.initStorage();
   }
 
@@ -36,6 +38,7 @@ export class LoginPage {
 
           if (alumno && alumno.Contrasena.toLowerCase() === contrasena) {
             console.log('Autenticación exitosa');
+            this.auth.setAuthenticationStatus(true);
 
             const correoUsuario = this.user.Gmail;
 
