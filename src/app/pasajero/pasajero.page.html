@@ -1,3 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button [routerLink]="['/inicio']"> 
+        <ion-icon slot="icon-only" name="person-circle" #loginIcon></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Seleccion de Conductor </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -26,6 +36,7 @@
             <h2>{{ conductor.nombreConductor }}</h2>
             <p>{{ conductor.Gmail}}</p>
             <p>{{ conductor.autoMarca }} - {{ conductor.autoPatente }}</p>
+            <p>Hora de Salida: {{ conductor.horaSalida}}</p>
             <p>${{ conductor.vPersona }}</p>
             <ion-button>Seleccionar</ion-button>
           </ion-label>
