@@ -7,24 +7,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
   templateUrl: './pasajero.page.html',
   styleUrls: ['./pasajero.page.scss'],
 })
-export class PasajeroPage implements OnInit{
+export class PasajeroPage implements OnInit {
 
-  conductores: any [] = [];
+  conductores: any[] = [];
+  correoUsuario = localStorage.getItem('credentials') || '';
 
   latitud: number | undefined;
   longitud: number | undefined;
 
   constructor(private http: HttpClient) { }
 
-  async obtenerCoordenadas(){
+  async obtenerCoordenadas() {
 
     const obtenerCoordenadas = await Geolocation.getCurrentPosition()
-    this.latitud=obtenerCoordenadas.coords.latitude;
-    this.longitud=obtenerCoordenadas.coords.longitude;
+    this.latitud = obtenerCoordenadas.coords.latitude;
+    this.longitud = obtenerCoordenadas.coords.longitude;
   }
 
   enviarCorreo() {
-    const destinatario = 'correo@destino.com';
+    const destinatario = this.correoUsuario;
+    console.log(destinatario)
     const asunto = 'Asunto del correo';
     const cuerpo = 'Cuerpo del correo...';
 
