@@ -38,7 +38,7 @@
             <p>{{ conductor.autoMarca }} - {{ conductor.autoPatente }}</p>
             <p>Hora de Salida: {{ conductor.horaSalida}}</p>
             <p>${{ conductor.vPersona }}</p>
-            <ion-button>Seleccionar</ion-button>
+            <ion-button (click)="enviarCorreo()">Seleccionar</ion-button>
           </ion-label>
         </ion-item>
       </ion-list>

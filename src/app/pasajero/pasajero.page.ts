@@ -23,6 +23,21 @@ export class PasajeroPage implements OnInit{
     this.longitud=obtenerCoordenadas.coords.longitude;
   }
 
+  enviarCorreo() {
+    const destinatario = 'correo@destino.com';
+    const asunto = 'Asunto del correo';
+    const cuerpo = 'Cuerpo del correo...';
+
+    // Genera el enlace 'mailto'
+    const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+
+    // Abre el cliente de correo predeterminado del usuario
+    window.location.href = mailtoLink;
+  }
+
+
+
+
   ngOnInit() {
     // Realizar la solicitud HTTP para obtener la lista de conductores
     this.http.get<any[]>('http://127.0.0.1:8000/api/conductores').subscribe(
