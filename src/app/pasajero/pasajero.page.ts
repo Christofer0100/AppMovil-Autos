@@ -31,7 +31,7 @@ export class PasajeroPage implements OnInit {
     const longitud = obtenerCoordenadas.coords.longitude;
   
     // Construye el cuerpo del mensaje con saltos de línea
-    const cuerpo = `Correo de confirmación reserva viaje. Dirección Pasajero: ${latitud}, ${longitud}`;
+    const cuerpo = `Correo de confirmación reserva viaje.Nombre Pasajero: ${this.nombrePasajero}, Dirección Pasajero: ${latitud}, ${longitud}`;
   
     // Genera el enlace 'mailto' con el destinatario específico
     const mailtoLink = `mailto:${destinatarioConductor},${destinatarioUsuario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
