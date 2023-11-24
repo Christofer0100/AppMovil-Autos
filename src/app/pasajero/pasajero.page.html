@@ -22,14 +22,6 @@
 <ion-content [fullscreen]="true">
   <ion-content>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-    <ion-content>
       <ion-list>
         <ion-item *ngFor="let conductor of conductores">
           <ion-label>
@@ -37,34 +29,34 @@
             <p>{{ conductor.Gmail}}</p>
             <p>{{ conductor.autoMarca }} - {{ conductor.autoPatente }}</p>
             <p>Hora de Salida: {{ conductor.horaSalida}}</p>
-            <p>${{ conductor.vPersona }}</p>
-            <ion-button (click)="enviarCorreo()">Seleccionar</ion-button>
+            <p>Valor: ${{ conductor.vPersona }}</p>
+            <ion-button (click)="enviarCorreo(conductor.Gmail, correoUsuario)">Seleccionar</ion-button>
           </ion-label>
         </ion-item>
       </ion-list>
-    </ion-content>
-    
-    
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Obtener Dirección</ion-card-title>
-      </ion-card-header>
-      <div class="ion-padding">
-        <ion-item>
-          <ion-label>Latitud {{latitud}}</ion-label>
-        </ion-item>
-      </div>
-    
-      <div class="ion-padding">
-        <ion-item>
-          <ion-label>Longitud {{longitud}}</ion-label>
-        </ion-item>
-      </div>
-    
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tu Direccion es</ion-card-title>
+        </ion-card-header>
+        <div class="ion-padding">
+          <ion-item>
+            <ion-label>Latitud {{latitud}}</ion-label>
+          </ion-item>
+        </div>
+      
+        <div class="ion-padding">
+          <ion-item>
+            <ion-label>Longitud {{longitud}}</ion-label>
+          </ion-item>
+        </div>
+      </ion-card>
+  
       <div class="ion-padding">
         <ion-button expand="full" (click)="obtenerCoordenadas()">Obtener</ion-button>
       </div>
-    </ion-card>
+    
+    
 
   </ion-content>
 
