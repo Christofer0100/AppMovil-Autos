@@ -50,16 +50,8 @@ export class LoginConductorPage {
                 conductor: conductor
               }
             };
-
-            if (this.rememberMe) {
-              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.auto.Gmail, Contrasena: this.auto.Contrasena }));
-              console.log('Credenciales guardadas en localStorage');
-            } else {
-              // Si no está marcado, elimina las credenciales almacenadas
-              localStorage.removeItem('credentials');
-              console.log('Credenciales eliminadas de localStorage');
-            }
-          } else {
+          } 
+          else {
             console.log('Autenticación fallida: Credenciales incorrectas');
             this.router.navigate(['/login-conductor']);
           }

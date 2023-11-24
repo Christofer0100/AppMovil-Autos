@@ -57,17 +57,30 @@
         </ion-card-content>
       </ion-card>
       <br>
+
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Metro Los Héroes</ion-card-title>
-          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
+          <ion-card-title>Tu Direccion es</ion-card-title>
         </ion-card-header>
-        <ion-card-content>
-          <div class="ion-text-end">
-            <button class="btn btn-secondary">Seleccionar</button>
-          </div>
-        </ion-card-content>
+        <div class="ion-padding">
+          <ion-item>
+            <ion-label>Latitud {{latitud}}</ion-label>
+          </ion-item>
+        </div>
+      
+        <div class="ion-padding">
+          <ion-item>
+            <ion-label>Longitud {{longitud}}</ion-label>
+          </ion-item>
+        </div>
       </ion-card>
+  
+      <div class="ion-padding">
+        <ion-button expand="full" (click)="obtenerCoordenadas()">Obtener</ion-button>
+      </div>
+
+
+
     </ion-list>
 
   </ion-content>

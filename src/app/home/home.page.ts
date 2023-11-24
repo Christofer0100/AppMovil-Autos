@@ -17,6 +17,8 @@ export class HomePage {
   state: any;
   user: any;
 
+  correoUsuario = localStorage.getItem('credentials') || '';
+
   latitud: number | undefined;
   longitud: number | undefined;
 
@@ -38,7 +40,7 @@ export class HomePage {
   }
 
   async obtenerCoordenadas(){
-
+    console.log(this.correoUsuario);
     const obtenerCoordenadas = await Geolocation.getCurrentPosition()
     this.latitud=obtenerCoordenadas.coords.latitude;
     this.longitud=obtenerCoordenadas.coords.longitude;
