@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pasajero',
@@ -19,7 +20,7 @@ export class PasajeroPage implements OnInit {
   latitud: number | undefined;
   longitud: number | undefined;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router: Router) { }
 
   async enviarCorreo(destinatarioConductor: string, destinatarioUsuario: string) {
     console.log(destinatarioConductor);
@@ -38,6 +39,7 @@ export class PasajeroPage implements OnInit {
   
     // Abre el cliente de correo predeterminado del usuario
     window.location.href = mailtoLink;
+    this.router.navigate(['/inicio']);
   }
 
 
