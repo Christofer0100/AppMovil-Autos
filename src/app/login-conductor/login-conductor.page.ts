@@ -19,7 +19,7 @@ export class LoginConductorPage {
   };
   rememberMe!: boolean;
 
-  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage, private auth: GuardGuard) {
+  constructor(private router: Router, private authService: AUTService, public api: AlumnosService, private storage: Storage, private auth: GuardGuard) {
     this.initStorage();
   }
 

@@ -15,7 +15,8 @@ export class LoginPage {
   user = {
     Gmail: "",         
     Contrasena: "",
-    nombreAlumno: ""     
+    nombreAlumno: "",
+    nombreConductor: ""   
   };
   rememberMe!: boolean;
 
@@ -35,6 +36,7 @@ export class LoginPage {
           const usuario = this.user.Gmail.toLowerCase();
           const contrasena = this.user.Contrasena.toLowerCase();
           const nombreAl = this.user.nombreAlumno.toLowerCase();
+          const nombreCo = this.user.nombreConductor.toLowerCase();
 
           const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.nombreAlumno.toLowerCase() === nombreAl);
 
@@ -56,6 +58,8 @@ export class LoginPage {
             if (this.rememberMe) {
               localStorage.setItem('credentials',  this.user.Gmail);
               localStorage.setItem('nombre',  this.user.nombreAlumno);
+              localStorage.setItem('nombreConductor',  this.user.nombreConductor);
+
               console.log('Credenciales guardadas en localStorage');
             } else {
               // Si no está marcado, elimina las credenciales almacenadas
@@ -93,6 +97,10 @@ export class LoginPage {
       // Redirigir a una página específica para correos con dominio "duoc.cl"
       this.router.navigate(['/pasajero']);
     } 
+    else if (dominio === 'cduoc.cl') {
+      // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
+      this.router.navigate(['/home']);
+    }
   }
-
 }
+
