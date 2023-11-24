@@ -12,6 +12,8 @@ export class PasajeroPage implements OnInit {
   conductores: any[] = [];
 
   correoUsuario = localStorage.getItem('credentials') || '';
+  nombrePasajero = localStorage.getItem('nombre') || '';
+
 
   latitud: number | undefined;
   longitud: number | undefined;

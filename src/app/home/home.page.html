@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="person-circle" #loginIcon></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Detalle de Pasajeros {{user?.Gmail}}</ion-title>
+    <ion-title>Detalle de Pasajeros</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-header [translucent]="true">
@@ -24,10 +24,10 @@
     <div class="ion-padding">
       <ion-card class="ion-text-center">
         <ion-card-header>
-          <ion-card-title>Bienvenido  </ion-card-title>
+          <ion-card-title>Bienvenido {{ nombreConductor }} </ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          Selecciona al conductor deseado
+          Lista de Pasajeros
         </ion-card-content>
       </ion-card>
     </div>

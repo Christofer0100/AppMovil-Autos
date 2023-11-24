@@ -5,7 +5,8 @@ import { IonModal } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { Animation } from '@ionic/angular';
 import { IonAvatar } from '@ionic/angular';
-import { Geolocation } from '@capacitor/geolocation'
+import { Geolocation } from '@capacitor/geolocation';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,11 @@ export class HomePage {
   state: any;
   user: any;
 
+  pasajeros: any[] = []; // Array para almacenar los pasajeros
+
   correoUsuario = localStorage.getItem('credentials') || '';
+  nombrePasajero = localStorage.getItem('nombre') || '';
+  nombreConductor = localStorage.getItem('nombreConductor') || '';
 
   latitud: number | undefined;
   longitud: number | undefined;
@@ -30,7 +35,7 @@ export class HomePage {
     private activeroute: ActivatedRoute, 
     private router: Router, 
     private animationCtrl: AnimationController,
-    modalController: ModalController
+    modalController: ModalController, public navCtrl: NavController
   ) {
     this.activeroute.queryParams.subscribe(params => {
       this.state = this.router.getCurrentNavigation()?.extras.state;
@@ -39,8 +44,14 @@ export class HomePage {
     });
   }
 
+  
+
+
+
   async obtenerCoordenadas(){
     console.log(this.correoUsuario);
+    console.log(this.nombrePasajero);
+    console.log(this.nombreConductor);
     const obtenerCoordenadas = await Geolocation.getCurrentPosition()
     this.latitud=obtenerCoordenadas.coords.latitude;
     this.longitud=obtenerCoordenadas.coords.longitude;

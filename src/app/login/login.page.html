@@ -12,11 +12,19 @@
     <ion-card-header>
       <ion-card-title>Login</ion-card-title>
     </ion-card-header>
+
     <form>
+
       <ion-item>
-        <ion-label position="floating">gmail</ion-label>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input  [(ngModel)]="user.nombreAlumno" name="nombreAlumno" type="text" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Gmail</ion-label>
         <ion-input  [(ngModel)]="user.Gmail" name="gmail " ></ion-input>
       </ion-item>
+      
       <ion-item>
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input  [(ngModel)]="user.Contrasena" name="Contrasena" type="password" ></ion-input>

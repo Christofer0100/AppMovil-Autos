@@ -14,7 +14,8 @@ export class LoginConductorPage {
 
   auto = {
     Gmail: "",         
-    Contrasena: ""     
+    Contrasena: "",
+    nombreConductor: ""  
   };
   rememberMe!: boolean;
 
@@ -33,8 +34,9 @@ export class LoginConductorPage {
         if (conductores && conductores.length > 0) {
           const usuario = this.auto.Gmail.toLowerCase();
           const contrasena = this.auto.Contrasena.toLowerCase();
+          const nombreCo = this.auto.nombreConductor.toLowerCase();
 
-          const conductor = conductores.find((conductor) => conductor.Gmail.toLowerCase() === usuario || conductor.nombreConductor.toLowerCase() === usuario);
+          const conductor = conductores.find((conductor) => conductor.Gmail.toLowerCase() === usuario || conductor.nombreConductor.toLowerCase() === nombreCo);
 
           if (conductor && conductor.Contrasena.toLowerCase() === contrasena) {
             console.log('Autenticación exitosa');
@@ -50,8 +52,16 @@ export class LoginConductorPage {
                 conductor: conductor
               }
             };
-          } 
-          else {
+
+            if (this.rememberMe) {
+              localStorage.setItem('nombreConductor',  this.auto.nombreConductor);
+              console.log('Credenciales guardadas en localStorage');
+            } else {
+              // Si no está marcado, elimina las credenciales almacenadas
+              localStorage.removeItem('credentials');
+              console.log('Credenciales eliminadas de localStorage');
+            }
+          } else {
             console.log('Autenticación fallida: Credenciales incorrectas');
             this.router.navigate(['/login-conductor']);
           }
