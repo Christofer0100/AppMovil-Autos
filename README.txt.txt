@@ -7,4 +7,4 @@ ionic capacitor open android (Abrir proyecto en android studio)
 
 npx cap sync android (Crear carpetas en proyecto)
 
-
+npm install -g karma jasmine

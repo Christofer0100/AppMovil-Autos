@@ -3,7 +3,6 @@ import { PasajeroPage } from './pasajero.page';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 
-
 describe('PasajeroPage', () => {
   let component: PasajeroPage;
   let fixture: ComponentFixture<PasajeroPage>;
